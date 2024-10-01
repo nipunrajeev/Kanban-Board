@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 70px; /* Set a fixed height (adjust as needed) */
   display: flex;
-  flex-direction: column;
+  align-items: center; /* Vertically center items */
+}
+
+.kanban-board {
+  display: flex;
+  gap: 10px;
+  background-color: rgba(234, 234, 248, 0.484);
+  padding: 35px;
+}
+
+.kanban-column {
+  width: 250px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.kanban-column h4{
+  color: gray;
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 7px;
+  
+
+}
+.kanban-column h5 {
+  margin-top: 5px;
+  margin-left: 7px;
+  margin-bottom: 0px;
+}
+
+.kanban-card {
+  background-color: white; /* Card background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 10px; /* Padding inside the card */
+  margin-bottom: 16px; /* Space between cards */
+}
+
+.kanban-card h5 {
+  display: -webkit-box;           /* Enables the flexbox for limiting lines */
+  -webkit-line-clamp: 2;          /* Limits the text to 2 lines */
+  -webkit-box-orient: vertical;   /* Ensures vertical orientation */
+  overflow: hidden;               /* Hides the overflow */
+  text-overflow: ellipsis;        /* Adds the ellipsis (...) at the end */
+  max-width: 200px;               /* Set a maximum width for the text container */
+}
+
+
+.kanban-card .priority-badge {
+  display: inline-flex; /* Flexbox for alignment */
+  align-items: center; /* Center vertically */
+  background-color: #f0f0f0; /* Background color for badge */
+  border-radius: 4px; /* Rounded corners for badge */
+  padding: 4px 8px; /* Padding for badge */
+  margin: 8px 0; /* Space around badge */
+}
+
+.kanban-card .priority-icon {
+  margin-right: 4px; /* Space between icon and text */
+}
+
+.kanban-card .user-avatar {
+  border-radius: 50%; /* Make it circular */
+  width: 24px; /* Avatar width */
+  height: 24px; /* Avatar height */
+  margin-left: auto; /* Push avatar to the right */
+}
+
+
+
+
+.add-card-btn {
+  width: 32px; /* Adjust the size as needed */
+  height: 32px;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* App.css */
+.controls {
+  position: relative;
+}
+
+.display-button {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: left;
+  width: 150px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 170px;
+  top: 50px;
+  right: 10px;
+  z-index: 100;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown h5 {
+  margin: 0 0 8px;
+  color: gray;
+}
+
+.dropdown select {
+  margin-bottom: 10px;
+  display: block;
+  width: 100px;
+  height: 25px;
+  color: rgb(0, 0, 0);
+}
+
+.display-button {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: none; /* Remove default button border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 8px; /* Padding around the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-left: 40px;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.display-icon {
+  width: 17px; /* Adjust icon size */
+  height: 17px; /* Adjust icon size */
+  margin-right: 8px; /* Space between icon and text */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.display-button-label {
+  font-size: 16px; /* Adjust font size */
+  font-weight: 600;
+  color: #333; /* Change color if needed */
+
+}
+
+
+.tag {
+  margin-top: 10px;
+  margin-left: 7px;
+  display: inline-block;
+  padding: 5px 10px;
+  color: gray; /* Text color */
+  background-color: rgb(242, 240, 240);
+  border-radius: 3px; /* Rounded corners */
+  margin-right: 5px; /* Space between tags */
+  font-size: 14px; /* Tag font size */
 }
