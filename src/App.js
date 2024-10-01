@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';  // Ensure your CSS matches the styles
+import './App.css';  
 
 function App() {
   const [tickets, setTickets] = useState([]);
@@ -23,7 +23,7 @@ function App() {
     0: 'No priority'
   };
 
-  // Fetch data from API
+  // API
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -36,21 +36,21 @@ function App() {
     fetchData();
   }, []);
 
-  // Save Group By and Sort By settings to localStorage
+  //  Group By and Sort By to localStorage
   const handleSortByChange = (newSortBy) => {
     setSortBy(newSortBy);
-    localStorage.setItem('sortBy', newSortBy);  // Save sortBy to localStorage
+    localStorage.setItem('sortBy', newSortBy);  // sortBy to localStorage
   };
 
   const handleGroupByChange = (newGroupBy) => {
     setGroupBy(newGroupBy);
-    localStorage.setItem('groupBy', newGroupBy);  // Save groupBy to localStorage
+    localStorage.setItem('groupBy', newGroupBy);  //  groupBy to localStorage
   };
 
-  // Handle adding a new ticket
+  // new ticket
   const handleAddTicket = () => {
     const ticket = {
-      id: `CAM-${tickets.length + 1}`, // Generate new ID
+      id: `CAM-${tickets.length + 1}`, // Generate ID
       title: newTicket.title,
       priority: parseInt(newTicket.priority),
       status: newTicket.status,
@@ -101,9 +101,9 @@ function App() {
   const sortTickets = (tickets, sortBy) => {
     return tickets.sort((a, b) => {
       if (sortBy === 'priority') {
-        return b.priority - a.priority;  // Sort by priority (highest to lowest)
+        return b.priority - a.priority;  
       } else if (sortBy === 'title') {
-        return a.title.localeCompare(b.title);  // Sort by title alphabetically
+        return a.title.localeCompare(b.title);  
       }
       return 0;
     });
@@ -116,17 +116,17 @@ function App() {
     <div className="App">
       <header className="App-header">
 
-        {/* Display button with image and label */}
+        {}
         <button className="display-button" onClick={() => setShowDropdown(!showDropdown)}>
           <img
             className="display-icon"
-            src="/images/Display.svg"  // Replace with actual image path
+            src={`${process.env.PUBLIC_URL}/images/Display.svg`}
             alt="Display Options"
           />
-          <span className="display-button-label">Display</span>  {/* Add label here */}
+          <span className="display-button-label">Display</span>  {}
         </button>
 
-        {/* Dropdown for Group and Sort Options */}
+        {}
         {showDropdown && (
           <div className="dropdown">
             <h5>Grouping</h5>
@@ -161,7 +161,7 @@ function App() {
 
               {sortedTickets.map((ticket) => (
                 <div key={ticket.id} className="kanban-card">
-                  <h4>{ticket.id}</h4> {/* Display ticket ID */}
+                  <h4>{ticket.id}</h4> {}
                   <h5>{ticket.title}</h5>
 
                   <div className="tags">
@@ -177,7 +177,7 @@ function App() {
 
               <img
                 className="add-card-btn"
-                src="/images/add.svg"
+                src={`${process.env.PUBLIC_URL}/images/add.svg`}
                 alt="Add New Card"
                 onClick={() => setShowModal(true)}
                 style={{ cursor: 'pointer' }}
@@ -187,7 +187,7 @@ function App() {
         })}
       </div>
 
-      {/* Modal for Adding New Ticket */}
+      {/*Adding New Ticket */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">
